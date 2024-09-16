@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mission-deployment
+  namespace: webapps
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mission
+  template:
+    metadata:
+      labels:
+        app: mission
+    spec:
+      containers:
+      - name: mission-container
+        image: prasadmandhare7959/mission:latest
+        ports:
+        - containerPort: 8080
